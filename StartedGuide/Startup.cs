@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using StartedGuide.Data;
+using StartedGuide.Seed;
 
 namespace StartedGuide
 {
@@ -57,6 +58,11 @@ namespace StartedGuide
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+
+            if (env.IsDevelopment())
+            {
+                AppDbInitializer.Seed(app);
+            }
         }
     }
 }
