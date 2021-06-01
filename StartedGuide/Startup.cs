@@ -13,6 +13,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using StartedGuide.Data;
+using StartedGuide.Data.Services;
 using StartedGuide.Seed;
 
 namespace StartedGuide
@@ -34,6 +35,8 @@ namespace StartedGuide
             {
                 options.UseMySQL(_config.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddScoped<BookService>();
             
             services.AddSwaggerGen(c =>
             {
