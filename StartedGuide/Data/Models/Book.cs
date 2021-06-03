@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace StartedGuide.Data.Models
 {
@@ -26,6 +27,10 @@ namespace StartedGuide.Data.Models
         
         public DateTime DateAdded { get; set; }
 
-        
+        public int PublisherId { get; set; }
+
+        public Publisher Publisher { get; set; }
+
+        public List<BookAuthor> BookAuthors { get; set; }
     }
 }
